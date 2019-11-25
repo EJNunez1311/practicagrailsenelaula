@@ -1,6 +1,15 @@
 package practicagrailsenelaula
 
-class Estudiante {
+import groovy.transform.EqualsAndHashCode
+import groovy.transform.ToString
+
+@EqualsAndHashCode(includes='username')
+@ToString(includes='username', includeNames=true, includePackage=false)
+class Estudiante implements Serializable {
+
+    private static final long serialVersionUID = 1
+
+    transient springSecurityService
 
     String nombre
     String email
@@ -19,5 +28,9 @@ class Estudiante {
         respuesta2 blank: false
         respuesta3 blank: false
         respuesta4 blank: false
+    }
+    static transients = ['springSecurityService']
+    static mapping = {
+        table 'estudiante'
     }
 }
