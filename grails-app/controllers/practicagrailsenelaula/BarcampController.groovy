@@ -8,9 +8,8 @@ class BarcampController {
 
     }
     def save(){
-        def estudiante = new Estudiante(params.Estudiante)
-        render"Hola la respuesta es: "+ estudiante.respuesta1 + estudiante.respuesta2
-        estudiante.save()
+        def respuesta = new Preguntas(params.Preguntas)
+        respuesta.save()
         render "Success!"
     }
 }
